@@ -8,6 +8,9 @@ import (
 	"github.com/nfnt/resize"
 )
 
+// Interpolation algorithm to use
+var Interpolation = resize.Bicubic
+
 // Render the source image and a blurred background to the destination
 func Render(dst draw.Image, src image.Image, details uint) {
 	scaleX := float64(dst.Bounds().Dx()) / float64(src.Bounds().Dx())
@@ -19,8 +22,8 @@ func Render(dst draw.Image, src image.Image, details uint) {
 	}
 	sizeX := uint(0.5 + float64(src.Bounds().Dx())*scaleX)
 	sizeY := uint(0.5 + float64(src.Bounds().Dy())*scaleY)
-	background := resize.Resize(uint(dst.Bounds().Dx()), uint(dst.Bounds().Dy()), resize.Resize(details, details, src, resize.Lanczos3), resize.Lanczos3)
-	foreground := resize.Resize(sizeX, sizeY, src, resize.Lanczos3)
+	background := resize.Resize(uint(dst.Bounds().Dx()), uint(dst.Bounds().Dy()), resize.Resize(details, details, src, Interpolation), Interpolation)
+	foreground := resize.Resize(sizeX, sizeY, src, Interpolation)
 	fgPoint := dst.Bounds().Size().Sub(image.Pt(int(sizeX), int(sizeY))).Div(2)
 	fgBounds := foreground.Bounds().Add(fgPoint)
 	draw.Draw(dst, dst.Bounds(), background, image.ZP, draw.Src)
