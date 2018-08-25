@@ -1,5 +1,5 @@
 // Package bbd renders blurred image borders
-package bbd
+package bbd // import "go.htdvisser.nl/bbd"
 
 import (
 	"image"

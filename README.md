@@ -1,8 +1,8 @@
 # Blurred Image Border
 
-Package `github.com/htdvisser/bbd` resizes an image and adds blurred image borders to make the image fit the target ratio.
+Package `go.htdvisser.nl/bbd` resizes an image and adds blurred image borders to make the image fit the target ratio.
 
-[![GoDoc](https://godoc.org/github.com/htdvisser/bbd?status.svg)](https://godoc.org/github.com/htdvisser/bbd)
+[![GoDoc](https://godoc.org/go.htdvisser.nl/bbd?status.svg)](https://godoc.org/go.htdvisser.nl/bbd)
 
 **Before (1728x1080):**
 

@@ -5,7 +5,7 @@ import (
 	"image/jpeg"
 	"os"
 
-	"github.com/htdvisser/bbd"
+	"go.htdvisser.nl/bbd"
 )
 
 func ExampleRender() {
